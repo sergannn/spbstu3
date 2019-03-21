@@ -1,0 +1,63 @@
+
+
+<!--
+    Div structure : Manitan a container which has class "cropHolder"
+                    Inside this, another div with the ID of "cropWrapper" and inside this use <img> with any id
+                    this have to use in this option: (cropInput: 'inputImage')
+    CropInputs    : Here you can maintain structure as you want but keep these IDs same
+                    1. "xmove" : for horizontal moving
+                    2. "ymove" : for vertical moving
+                    3. "zplus" : zoom in button
+                    4. "zminus": zoom out button
+                    5. "cropSubmit" : submitting the crop
+                    6. "closeCrop" : closing the cropping screen
+ -->
+<div class="cropHolder">
+    <div id="cropWrapper">
+        <img id="inputImage" src="images/face.jpg">
+    </div>
+    <div class="cropInputs">
+        <div class="inputtools">
+            <p>Предлагаем обрезать изображение
+                    <span>
+                        <img src="images/horizontal.png">
+                    </span>
+                <span>horizontal movement</span>
+            </p>
+            <input type="range" class="cropRange" name="xmove" id="xmove" min="0" value="0">
+        </div>
+        <div class="inputtools">
+            <p>
+                    <span>
+                        <img src="images/vertical.png">
+                    </span>
+                <span>vertical movement</span>
+            </p>
+            <input type="range" class="cropRange" name="ymove" id="ymove" min="0" value="0">
+        </div>
+        <br>
+        <button class="cropButtons" id="zplus">
+            <img src="images/add.png">
+        </button>
+        <button class="cropButtons" id="zminus">
+            <img src="images/minus.png">
+        </button>
+        <br>
+        <button id="cropSubmit">submit</button>
+        <button id="closeCrop">Close</button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+    console.log('start');
+    $("#upphoto").finecrop({
+        viewHeight: 500,
+        cropWidth: 200,
+        cropHeight: 200,
+        cropInput: 'inputImage',
+        cropOutput: 'croppedImg',
+        zoomValue: 50
+    });
+    });
+</script>
